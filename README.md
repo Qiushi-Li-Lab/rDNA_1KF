@@ -122,7 +122,7 @@ bash ../0.scripts/RCNV_pipeline.sh -t 30
 
 ### Note on downloading data from MycoCosm:
 Please note that MycoCosm enforces strict data usage policies. You must obtain the appropriate permissions in advance to avoid any potential issues. Raw sequencing data in MycoCosm is often stored on tape and not immediately available for download. You will need to register, request the data, and wait for it to be released.  
-After that, download the project XML file and use **rCNV_0_export_downloadscript.R** to generate a bash download script.  
-Finally, check the MD5 checksum to make sure the files are complete.
+After that, download the project XML file and use **rCNV_0_export_downloadscript.R** to generate a bash download script. Finally, check the MD5 checksum to make sure the files are complete.
+<br>
 
 
