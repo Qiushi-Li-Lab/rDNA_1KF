@@ -38,7 +38,7 @@ conda activate base
 conda create -n samtools
 conda activate samtools
 conda install -c conda-forge -c bioconda samtools
-```bash
+```
 
 ```bash
 # switch back to base
