@@ -28,7 +28,8 @@ done
 
 
 # conda activate
-source /data2/software/mambaforge/etc/profile.d/conda.sh
+# source /data2/software/mambaforge/etc/profile.d/conda.sh
+# source /change/your/own/conda/path
 
 # bowtie2
 conda activate bowtie2

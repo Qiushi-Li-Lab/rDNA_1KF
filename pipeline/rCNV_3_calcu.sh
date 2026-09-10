@@ -5,7 +5,8 @@ mkdir CN_rlt
 mkdir CN_rlt_tmp
 
 # conda activate
-source /data2/software/mambaforge/etc/profile.d/conda.sh
+# source /data2/software/mambaforge/etc/profile.d/conda.sh
+# source /change/your/own/conda/path
 
 # return to base
 conda activate base
