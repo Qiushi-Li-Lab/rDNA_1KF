@@ -1,4 +1,4 @@
-## Fungal RRN estimating pipeline
+## Fungal rDNA copy number estimating pipeline
 
 This pipeline is used for estimating fungal RRN (rDNA copy number) based on the sequencing depth of single-copy genes and rDNA genes. It can also be used for other multi-copy genes.
 
