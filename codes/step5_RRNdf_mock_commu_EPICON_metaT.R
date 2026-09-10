@@ -1866,27 +1866,7 @@ EPICON_amp_met_cla_adj <-
 
 
 # EPICON_amp_met_cla_adj %>% filter(R_p_met > 0.5)
-# percentage
-p_amp_met1 <- 
-  ggplot(EPICON_amp_met_cla_adj,
-       aes(R_p, R_p_met)) +
-  geom_smooth(method = "lm") +
-  scale_x_continuous(limits = c(0, 1)) +
-  scale_y_continuous(limits = c(0, 1)) +
-  geom_point() +
-  geom_abline(slope = 1)
 
-p_amp_met2 <- 
-  ggplot(EPICON_amp_met_cla_adj,
-       aes(R_p_adj, R_p_met)) +
-  geom_smooth(method = "lm") +
-  scale_x_continuous(limits = c(0, 1)) +
-  scale_y_continuous(limits = c(0, 1)) +
-  geom_point() +
-  geom_abline(slope = 1)
-
-p_amp_met1 + p_amp_met2
-# ggsave("bias_percentage_amp_met.pdf")
 
 # composition
 EPICON_amp1_cla_l_adj
