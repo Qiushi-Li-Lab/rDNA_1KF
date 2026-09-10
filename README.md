@@ -98,7 +98,7 @@ The estimated results will be placed in the **CN_rlt** directory inside your pro
 
 ## An example
 
-The example data was obtained from Chen *et al.* (https://nph.onlinelibrary.wiley.com/doi/abs/10.1111/nph.70155) and NCBI including genes and raw sequencing data. Because the raw sequencing data files are so large, we randomly extracted 20% of the reads for testing.
+The example data was obtained from Chen *et al.* (https://nph.onlinelibrary.wiley.com/doi/abs/10.1111/nph.70155) and NCBI including genes and raw sequencing data. Because the raw sequencing data files are so large, we randomly extracted 10% of the reads for testing.
 
 
 First, unzip the test file:
