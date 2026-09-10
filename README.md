@@ -34,7 +34,7 @@ conda install -c conda-forge -c bioconda bowtie2
 conda activate base
 ```
 ```bash
-### Samtools
+### SAMtools
 conda create -n samtools
 conda activate samtools
 conda install -c conda-forge -c bioconda samtools
