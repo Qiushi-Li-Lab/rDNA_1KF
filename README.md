@@ -103,12 +103,12 @@ The example data was obtained from Chen *et al.* (https://nph.onlinelibrary.wile
 
 First, unzip the test file:
 ```bash
-unzip calcu_fungal_rrn_test.zip
+unzip RRNdf_test.zip
 ```
 
 After unzipping, the test directory structure should look like this:
 ```bash
-09.test/
+RRNdf_test/
 ├── raw_data/
 ├── single_copy_gene/
 └── multi_copy_gene/
@@ -116,8 +116,8 @@ After unzipping, the test directory structure should look like this:
 
 Then navigate to the project directory and run the pipeline:
 ```bash
-cd 09.test/
-bash ../0.scripts/RCNV_pipeline.sh -t 30
+cd RRNdf_test/
+bash ../0.scripts/RCNV_pipeline_both.sh -t 30
 ```
 
 ### Note on downloading data from MycoCosm:
