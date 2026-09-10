@@ -85,11 +85,11 @@ This pipeline is written in bash. Before you start, you need to manually update 
 Next, navigate to your project directory. Then run the appropriate command:
 
 ```bash
-Single-end (unpaired) reads:
+# Single-end (unpaired) reads:
 bash ../0.scripts/RCNV_pipeline.sh -t 30 # -t : number of threads
 ```
 ```bash
-Paired-end reads:
+# Paired-end reads:
 bash ../0.scripts/RCNV_pipeline_both.sh -t 30 # -t : number of threads
 ```
 
