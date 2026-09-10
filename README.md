@@ -9,7 +9,7 @@ In addition, you will need to configure the Conda environment path to match your
 ## Dependences
 **Bowtie 2** version 2.5.3
 
-**samtools** version 1.19.2
+**SAMtools** version 1.19.2
 
 **R packages:** tidyverse and Biostrings
 
