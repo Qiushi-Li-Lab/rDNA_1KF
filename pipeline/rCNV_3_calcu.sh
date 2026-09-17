@@ -8,8 +8,8 @@ mkdir CN_rlt_tmp
 # source /data2/software/mambaforge/etc/profile.d/conda.sh
 # source /change/your/own/conda/path
 
-# return to base
-conda activate base
+# R_env
+conda activate R_env
 
 # Q0
 mv ./depth_output/*txt ./CN_rlt_tmp
