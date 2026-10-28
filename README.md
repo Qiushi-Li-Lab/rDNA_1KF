@@ -19,7 +19,7 @@ In addition, you will need to configure the Conda environment path to match your
 
 To avoid software version conflicts, we recommend putting each dependency in its own conda environment.
 
-First, make sure you have **Conda** or **Mamba** installed.
+First, make sure you have `Conda` or `Mamba` installed.
 
 ### Install the main dependencies
 ```bash
@@ -54,6 +54,7 @@ conda install conda-forge::r-tidyverse
 ```
 <br>
 
+## Estimating rDNA copy number
 ### Prepare the input data
 
 **Raw sequencing reads:** single-end or paired-end FASTQ files. Paired-end files should be named xxx_1.fastq / xxx_2.fastq (e.g. strain1_1.fastq and strain1_2.fastq), and single-end files can be named xxx.fastq.
@@ -93,10 +94,10 @@ bash ../0.scripts/RCNV_pipeline.sh -t 30 # -t : number of threads
 bash ../0.scripts/RCNV_pipeline_both.sh -t 30 # -t : number of threads
 ```
 
-The estimated results will be placed in the **CN_rlt** directory inside your project folder.
+The estimated results will be placed in the `CN_rlt` directory inside your project folder.
 <br>
-
-## An example
+<br>
+### An example
 
 The example data was obtained from Chen *et al.* (https://nph.onlinelibrary.wiley.com/doi/abs/10.1111/nph.70155) and NCBI including genes and raw sequencing data. Because the raw sequencing data files are so large, we randomly extracted 10% of the reads for testing.
 
@@ -119,10 +120,47 @@ Then navigate to the project directory and run the pipeline:
 cd RRNdf_test/
 bash ../0.scripts/RCNV_pipeline_both.sh -t 30
 ```
+<br>
 
-### Note on downloading data from MycoCosm:
-Please note that MycoCosm enforces strict data usage policies. You must obtain the appropriate permissions in advance to avoid any potential issues. Raw sequencing data in MycoCosm is often stored on tape and not immediately available for download. You will need to register, request the data, and wait for it to be released.  
-After that, download the project XML file and use **rCNV_0_export_downloadscript.R** to generate a bash download script. **Globus** maybe a good choise. Finally, check the MD5 checksum to make sure the files are complete.
+## Taxon relative abundance adjustment using RRNdf
+Optionally, taxon relative abundance in the fungal OTU/ASV table could be adjusted using an R script named `rCNV_4_adjOTUtab_using_RRNdf.R`.
+
+```bash
+Usage: usage .\ADJ_OTUtab_using_RRNdf.R [options]
+An R script for adjusting ASV/OTU table with RRNdf (obtained from https://nmdc.cn/rrndf/).
+
+Options:
+        -r REF_DB, --ref_db=REF_DB
+                RRNdf table, obtained from https://nmdc.cn/rrndf/
+
+        -i TABLE, --table=TABLE
+                Un-rarefied OTU/ASV table, name of first column must be <OTU_ID>
+
+        -t TAXA_METADATA, --taxa_metadata=TAXA_METADATA
+                must contain <OTU_ID> and may include some of <Phylum>, <Class>, <Order>, <Family>, <Genus>, <Species>
+
+        -m ADJ_MODE, --adj_mode=ADJ_MODE
+                Adjustment mode: <strict> (un-targeted OTU/ASV set to -1), <balance> (only OTU/ASV matched to RRNdf are adjusted, others kept as original counts), <broad> (all OTU/ASV adjusted, un-targeted filled with the sample mean RRN)
+
+        -p PHYLUM, --Phylum=PHYLUM
+                Taxa to adjust: <all> or <Glomeromycota>
+        -o OUT_PUT, --out_put=OUT_PUT
+                Adjusted OTU/ASV table, saved in TSV format.
+
+        -h, --help
+                Show this help message and exit
+
+```
+<br>
+
+> ### Note on adjusting OTU/ASV table:
+> The fungal rDNA copy number-based adjustment step requires the `RRNdf`, which must be downloaded from https://nmdc.cn/rrndf/.
+> However, the current version of `RRNdf` contains limited information and does not adequately cover the full range of fungal taxa.
+> Therefore, the OTU/ASV table corrected for all taxa (i.e., using all available `RRNdf` information) should be used with caution. Correcting only `Glomeromycota` may be a good option.
+
+> ### Note on downloading data from MycoCosm:
+> Please note that MycoCosm enforces strict data usage policies. You must obtain the appropriate permissions in advance to avoid any potential issues. Raw sequencing data in MycoCosm is often stored on tape and not immediately available for download. You will need to register, request the data, and wait for it to be released.
+> After that, download the project XML file and use `rCNV_0_export_downloadscript.R` to generate a bash download script. `Globus` maybe a good choise. Finally, check the MD5 checksum to make sure the files are complete.
 
 <br>
 
